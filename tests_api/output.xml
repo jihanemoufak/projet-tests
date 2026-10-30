@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.14.7 on win32)" generated="2026-10-30T11:01:17.391748" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests Api" source="C:\Users\JMoufak\Documents\formations\Automatisation\Projet-tests\tests_api">
+<suite id="s1-s1" name="04 Requête PUT" source="C:\Users\JMoufak\Documents\formations\Automatisation\Projet-tests\tests_api\04_Requête_PUT.robot">
+<test id="s1-s1-t1" name="Test Requete PUT" line="16">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-10-30T11:01:17.755463" level="INFO">&amp;{headers} = { Authorization=Bearer Cle-API-ReqRes-test-academy }</msg>
+<var>&amp;{headers}</var>
+<arg>Authorization=Bearer ${API_KEY}</arg>
+<doc>Creates and returns a dictionary based on the given `items`.</doc>
+<status status="PASS" start="2026-10-30T11:01:17.754723" elapsed="0.000773"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-10-30T11:01:17.756199" level="INFO">&amp;{Corps_Requete} = { first_name=George | last_name=Bluth | email=george.bluth@api.testacademy.fr }</msg>
+<var>&amp;{Corps_Requete}</var>
+<arg>first_name=${FirstName_Attendu}</arg>
+<arg>last_name=${LastName_Attendu}</arg>
+<arg>email=${Email_Attendu}</arg>
+<doc>Creates and returns a dictionary based on the given `items`.</doc>
+<status status="PASS" start="2026-10-30T11:01:17.755834" elapsed="0.000387"/>
+</kw>
+<kw name="PUT" owner="RequestsLibrary">
+<msg time="2026-10-30T11:02:49.376619" level="INFO">PUT Request : url=https://mock-api-h0g7.onrender.com/api/users/1 
+ path_url=/api/users/1 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer Cle-API-ReqRes-test-academy', 'Content-Length': '90', 'Content-Type': 'application/json'} 
+ body=b'{"first_name": "George", "last_name": "Bluth", "email": "george.bluth@api.testacademy.fr"}' 
+ </msg>
+<msg time="2026-10-30T11:02:49.377047" level="INFO">PUT Response : url=https://mock-api-h0g7.onrender.com/api/users/1 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 30 Oct 2026 10:02:47 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'cf-cache-status': 'DYNAMIC', 'rndr-id': '6538b618-9239-4f36', 'Server': 'cloudflare', 'vary': 'Accept-Encoding', 'x-render-origin-server': 'uvicorn', 'Content-Encoding': 'gzip', 'CF-RAY': 'a52993e618e31310-CDG', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"first_name":"George","last_name":"Bluth","email":"george.bluth@api.testacademy.fr","avatar":"https://api.testacademy.fr/img/faces/1-image.jpg","updatedAt":"2026-10-30T10:02:47.820490"} 
+ </msg>
+<msg time="2026-10-30T11:02:49.377474" level="INFO">${Reponse} = &lt;Response [200]&gt;</msg>
+<var>${Reponse}</var>
+<arg>${Base_URL}api/users/${Id_Utilisateur}</arg>
+<arg>json=${Corps_Requete}</arg>
+<arg>headers=${headers}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a PUT request.</doc>
+<status status="PASS" start="2026-10-30T11:01:17.756489" elapsed="91.621075"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-10-30T11:02:49.379909" level="INFO">{'first_name': 'George', 'last_name': 'Bluth', 'email': 'george.bluth@api.testacademy.fr', 'avatar': 'https://api.testacademy.fr/img/faces/1-image.jpg', 'updatedAt': '2026-10-30T10:02:47.820490'}</msg>
+<arg>${Reponse.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-10-30T11:02:49.378668" elapsed="0.001386"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${Reponse.json()}</arg>
+<arg>updatedAt</arg>
+<doc>Fails if `key` is not found from `dictionary`.</doc>
+<status status="PASS" start="2026-10-30T11:02:49.380689" elapsed="0.000816"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2026-10-30T11:02:49.383053" level="INFO">${first_name} = George</msg>
+<var>${first_name}</var>
+<arg>${Reponse.json()}</arg>
+<arg>first_name</arg>
+<doc>Returns a value from the given `dictionary` based on the given `key`.</doc>
+<status status="PASS" start="2026-10-30T11:02:49.382306" elapsed="0.000823"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${FirstName_Attendu}</arg>
+<arg>${first_name}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-10-30T11:02:49.383813" elapsed="0.000944"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2026-10-30T11:02:49.387711" level="INFO">${last_name} = Bluth</msg>
+<var>${last_name}</var>
+<arg>${Reponse.json()}</arg>
+<arg>last_name</arg>
+<doc>Returns a value from the given `dictionary` based on the given `key`.</doc>
+<status status="PASS" start="2026-10-30T11:02:49.386061" elapsed="0.001755"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${LastName_Attendu}</arg>
+<arg>${last_name}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-10-30T11:02:49.389041" elapsed="0.001290"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2026-10-30T11:02:49.393697" level="INFO">${email} = george.bluth@api.testacademy.fr</msg>
+<var>${email}</var>
+<arg>${Reponse.json()}</arg>
+<arg>email</arg>
+<doc>Returns a value from the given `dictionary` based on the given `key`.</doc>
+<status status="PASS" start="2026-10-30T11:02:49.392401" elapsed="0.001394"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${Email_Attendu}</arg>
+<arg>${email}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-10-30T11:02:49.394659" elapsed="0.001015"/>
+</kw>
+<status status="PASS" start="2026-10-30T11:01:17.753737" elapsed="91.642630"/>
+</test>
+<status status="PASS" start="2026-10-30T11:01:17.444438" elapsed="91.954358"/>
+</suite>
+<status status="PASS" start="2026-10-30T11:01:17.393061" elapsed="92.011942"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Tests Api" id="s1" pass="1" fail="0" skip="0">Tests Api</stat>
+<stat name="04 Requête PUT" id="s1-s1" pass="1" fail="0" skip="0">Tests Api.04 Requête PUT</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
