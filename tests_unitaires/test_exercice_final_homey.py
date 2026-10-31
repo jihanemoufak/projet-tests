@@ -22,6 +22,8 @@ class TestHomeyManager(unittest.TestCase):
         self.propriete2 = self.manager.ajouter_propriete(2, "Appartement Paris", 100)
         self.propriete3 = self.manager.ajouter_propriete(3, "Maison Bretagne", 120)
 
+
+
     # TODO: Tests pour ajouter_propriete()
     # 1. Test ajout propriété valide (assertEqual)
     def test_ajouter_propriete_valide (self):
