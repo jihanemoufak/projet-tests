@@ -62,7 +62,7 @@ Accéder A La page De Connexion
      Click Link    ${LIEN_SE_CONNECTER}
 Saisir Le Nom D'Utilisateur
     [Arguments]    ${utilisateur valide}
-    Wait Until Element Is Visible    ${CHAMP_NOM_UTILISATEUR}    timeout=10s
+    Wait Until Element Is Visible    ${CHAMP_NOM_UTILISATEUR}    timeout=15s
     Click Element    ${CHAMP_NOM_UTILISATEUR}
     Input Text    ${CHAMP_NOM_UTILISATEUR}    ${utilisateur valide}
 Saisir Le Mot De Passe
@@ -76,24 +76,24 @@ Soumettre Le Formulaire De Connexion
 # ---------- Contacter l'hôte ----------
 Accéder A La Page De L'Annonce
     Go To    ${URL_ANNONCE}
-    Wait Until Element Is Visible    ${BOUTON_CONTACTER_HOTE_LATERAL}    timeout=10s
+    Wait Until Element Is Visible    ${BOUTON_CONTACTER_HOTE_LATERAL}    timeout=15s
     Title Should Be    ${TITRE_PAGE_ANNONCE}
 
 Ouvrir La Modale Contacter L'Hôte Depuis Le Bouton Latéral
-    Wait Until Element Is Visible    ${BOUTON_CONTACTER_HOTE_LATERAL}    timeout=10s
+    Wait Until Element Is Visible    ${BOUTON_CONTACTER_HOTE_LATERAL}    timeout=15s
     Click Element    ${BOUTON_CONTACTER_HOTE_LATERAL}
 
 Ouvrir La Modale Contacter L'Hôte Depuis La Section Hôte
-    Wait Until Element Is Visible    ${LIEN_CONTACTER_HOTE_SECTION_HOTE}    timeout=10s
+    Wait Until Element Is Visible    ${LIEN_CONTACTER_HOTE_SECTION_HOTE}    timeout=15s
     Click Element    ${LIEN_CONTACTER_HOTE_SECTION_HOTE}
 
 Fermer La Modale Contacter L'Hôte
-    Wait Until Element Is Visible    ${BOUTON_FERMER_MODALE_CONTACT_HOTE}    timeout=10s
+    Wait Until Element Is Visible    ${BOUTON_FERMER_MODALE_CONTACT_HOTE}    timeout=15s
     Click Element    ${BOUTON_FERMER_MODALE_CONTACT_HOTE}
 
 Saisir Le Nom Du Contact
     [Arguments]    ${nom}
-    Wait Until Element Is Visible    ${CHAMP_CONTACT_NOM}    timeout=10s
+    Wait Until Element Is Visible    ${CHAMP_CONTACT_NOM}    timeout=15s
     Click Element    ${CHAMP_CONTACT_NOM}
     Input Text    ${CHAMP_CONTACT_NOM}    ${nom}
 

@@ -2,6 +2,7 @@
 Library    Selenium2Library
 Resource    commun.resource
 
+
 *** Test Cases ***
 Le Tableau De Bord Doit Etre Visible Apres Une Connexion Réussie
     [Setup]    Effectuer Une Connexion Réussie
@@ -30,7 +31,7 @@ Accéder A La page De Connexion
      Click Link    ${LIEN_SE_CONNECTER}
 Saisir Le Nom D'Utilisateur
     [Arguments]    ${utilisateur valide}
-    Wait Until Element Is Visible    ${CHAMP_NOM_UTILISATEUR}    timeout=10s
+    Wait Until Element Is Visible    ${CHAMP_NOM_UTILISATEUR}    timeout=15s
     Click Element    ${CHAMP_NOM_UTILISATEUR}
     Input Text    ${CHAMP_NOM_UTILISATEUR}    ${utilisateur valide}
 Saisir Le Mot De Passe

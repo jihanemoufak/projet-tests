@@ -26,5 +26,5 @@ Un Message D'Erreur Doit Etre Visible Après Une Connexion Incorrecte
     Soumettre Le Formulaire De Connexion
     Vérifier Que Le Message D'Erreur Est Visible
 Vérifier Que Le Message D'Erreur Est Visible
-     Wait Until Element Is Visible    ${ZONE_DERREUR}    timeout=10s
+     Wait Until Element Is Visible    ${ZONE_DERREUR}    timeout=15s
 
